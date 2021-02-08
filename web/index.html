@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>江门市华凯科技有限公司</title>
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<style>
+    /*------------------*
+ * Global variables *
+ *------------------*/
+    /*------------*
+ * CSS Styles *
+ *------------*/
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        align-items: center;
+        background: linear-gradient(135deg, #404040, #333);
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 24px;
+        overflow: hidden;
+        background-size: cover;
+        background-image: url("http://15466479.s21i.faiusr.com/2/ABUIABACGAAgtq7a0AUohLb-9wYwgA842AQ.jpg");
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: cornflowerblue;
+        text-decoration: underline;
+    }
+
+    .card {
+        z-index: 999;
+        color: #d4cd96;
+        font-family: "Fira Sans", sans-serif;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform-origin: 100% 50%;
+        transform-style: preserve-3d;
+        width: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        transition: transform 0.6s cubic-bezier(0.49, 0.23, 0.58, 0.49);
+    }
+
+    .card.flipped {
+        transform: translateX(-100%) rotateY(-180deg);
+    }
+
+    .card-front,
+    .card-back {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        background: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.3), transparent 1px, rgba(0, 0, 0, 0.3) 2px);
+        background-size: 3px 3px;
+        background-color: #302f34;
+        border-radius: 1px;
+        box-shadow: 0px -6px 8px 0px rgba(0, 0, 0, 0.1), 0px 6px 8px 0px rgba(0, 0, 0, 0.1), 6px 0px 8px 0px rgba(0, 0, 0, 0.1), -6px 0px 8px 0px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        height: 100%;
+        left: 0;
+        padding: 5%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .card-back {
+        transform: rotateY(180deg);
+    }
+
+    .card-back .layer {
+        background: repeating-linear-gradient(135deg, rgba(76, 71, 31, 0.3), transparent 1px, rgba(76, 71, 31, 0.3) 2px);
+        color: #a0d1fd;
+        /* background-color: #d4cd96; */
+        /* color: #302f34; */
+        height: 100%;
+        position: relative;
+        width: 100%;
+    }
+
+    .card-back .layer:after {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), transparent);
+        content: "";
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .card-back .layer .top,
+    .card-back .layer .bottom {
+        left: 8%;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .card-back .layer .top {
+        top: 12%;
+    }
+
+    .card-back .layer .bottom {
+        bottom: 12%;
+    }
+
+    .card-back .layer h2,
+    .card-back .layer h3,
+    .card-back .layer h4 {
+        font-weight: 400;
+        margin: 2px 0;
+    }
+
+    .card-back .layer h2 {
+        font-size: 18px;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .card-back .layer h3 {
+        font-size: 16px;
+    }
+
+    .card-back .layer h4 {
+        font-size: 16px;
+        font-style: italic;
+    }
+
+    .card-front .layer {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+    }
+
+    .card-front .layer h1 {
+        font-size: 32px;
+        font-weight: 400;
+        letter-spacing: -2px;
+        margin: 0 auto;
+        padding: 6px 18px 4px;
+        text-align: center;
+    }
+
+    .card-front .layer .corner {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-right: 2px solid #d4cd96;
+        border-top: 2px solid #d4cd96;
+        height: 12px;
+        position: absolute;
+        width: 12px;
+    }
+
+    .card-front .layer .corner:nth-of-type(1) {
+        right: 0;
+        top: 0;
+    }
+
+    .card-front .layer .corner:nth-of-type(2) {
+        left: 0;
+        top: 0;
+        transform: rotateZ(-90deg);
+    }
+
+    .card-front .layer .corner:nth-of-type(3) {
+        bottom: 0;
+        left: 0;
+        transform: rotateZ(180deg);
+    }
+
+    .card-front .layer .corner:nth-of-type(4) {
+        bottom: 0;
+        right: 0;
+        transform: rotateZ(90deg);
+    }
+
+    .card-wrapper {
+        height: 20rem;
+        max-width: 31rem;
+        perspective: 600px;
+        position: relative;
+        width: 100%;
+        transition: transform 1s;
+    }
+
+    @media (max-width:31rem) {
+        .card-wrapper {
+            height: 23rem;
+        }
+    }
+    @media (max-width:25rem) {
+        .card-wrapper {
+            height: 25rem;
+        }
+    }
+</style>
+
+<body>
+    <div class='card-wrapper'>
+        <div class='card' data-toggle-class='flipped'>
+            <div class='card-front'>
+                <div class='layer'>
+                    <div class='corner'></div>
+                    <div class='corner'></div>
+                    <div class='corner'></div>
+                    <div class='corner'></div>
+                    <div class="row-fluid">
+                        <div class="span4">
+                            <br>
+                            <img alt="140x140" src="logo.png" />
+                        </div>
+                        <div class="span8">
+                            <h4 class="text-center">
+                                <span>江门市华凯科技有限公司</span>
+                            </h4>
+                            <p class="text-center">
+                                <strong>HUAKAI TECHNOLOGY CO.,LTD.</strong>
+                            </p>
+                            <hr />
+                            <!-- <p class="text-right">
+                                    <strong><strong><small><cite><span
+                                                        class="marker">市场部</span></cite></small></strong></strong>
+                                </p> -->
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span4">
+                            <div class="row-fluid">
+                                <br>
+                                <h3 class="text-center" style="font-size: 1.8rem;">
+                                    梁建进
+                                </h3>
+                                <p class="text-center" style="letter-spacing: .2rem;">
+                                    <strong>市场部经理</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="span8">
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <p>
+                                        <i class="fa fa-phone-square" aria-hidden="true"></i>
+                                        <strong>Mobile:
+                                            <a href='tel:13828045672'>13828045672</a>
+                                        </strong>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        <strong>E-mail:
+                                            <a href='mailto:13828045672@163.com'>13828045672@163.com</a>
+                                        </strong>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-qq" aria-hidden="true"></i>
+                                        <strong>QQ:
+                                            <a
+                                                href='http://wpa.qq.com/msgrd?v=3&uin=908694511&site=qq&menu=yes'>908694511</a>
+                                        </strong>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-weixin" aria-hidden="true"></i>
+                                        <strong>WeChat:
+                                            <a
+                                                href='./wechat.jpg'>13828045672</a>
+                                        </strong>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-globe" aria-hidden="true"></i> 
+                                        <strong>Web:
+                                            <a href='http://www.jmhtc.cn' target="_blank">www.jmhtc.cn</a>
+                                        </strong>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        <strong>Addr:
+                                            <a href='https://j.map.baidu.com/9f/_idJ'
+                                                target="_blank">广东省江门市新会区东侯路48号2座</a>
+                                        </strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class='card-back'>
+                <div class='layer' style='display:flex;justify-content:center;align-items:center;text-align: center;'>
+
+                    <div>
+                        <img alt="140x140" width=250 src="logo.png" />
+                        <h1>专业集成电路封装</h1>
+                        <h2>封装型号:SOT23-5-6/SOT223/SOP8L</h2>
+                        <h2>ESOP8/ESOP10/SOP14/16/SSOP24</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    ; (function () {
+        let card = document.getElementsByClassName('card')[0],
+            moved = 0,
+            interval;
+
+        if (!card) return;
+
+        card.addEventListener('click', function (event) {
+            clearInterval(interval);
+            card.style.transform = '';
+
+            // Do not flip the card if the user is trying to
+            // tap a link.
+            if (event.target.nodeName === 'A') {
+                return;
+            }
+
+            let cName = card.getAttribute('data-toggle-class');
+            let toggled = card.classList.contains(cName);
+            card.classList[toggled ? 'remove' : 'add'](cName);
+        });
+
+        interval = setInterval(function () {
+            moved = moved ? 0 : 10;
+            card.style.transform = 'translateY(' + moved + 'px)';
+        }, 1500);
+    })();
+</script>
+
+</html>

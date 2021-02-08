@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Group</class>
+ <widget class="QWidget" name="Group">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>550</width>
+    <height>301</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QGroupBox" name="Mail_Group">
+     <property name="title">
+      <string>邮件组</string>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>发送间隔</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="Interval_Combo">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <item>
+           <property name="text">
+            <string>每天</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>发送时间</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTimeEdit" name="Send_Time">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="currentSection">
+           <enum>QDateTimeEdit::HourSection</enum>
+          </property>
+          <property name="displayFormat">
+           <string>HH:mm</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="Del_BTN">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background:red</string>
+          </property>
+          <property name="text">
+           <string>X</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="Title_LE">
+          <property name="placeholderText">
+           <string>邮件标题...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="Content_TE">
+          <property name="placeholderText">
+           <string>邮件正文内容...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QFrame" name="Item_Container">
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <property name="lineWidth">
+         <number>2</number>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QPushButton" name="Add_BTN">
+             <property name="text">
+              <string>添加抓取数据</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="Inspect_BTN">
+             <property name="text">
+              <string>数据校验</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

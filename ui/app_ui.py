@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\FatherProject\ui\app.ui'
+# Form implementation generated from reading ui file 'd:/FatherProject/ui\app.ui'
 #
-# Created: Mon Feb  8 18:20:20 2021
+# Created: Wed Feb 10 07:53:06 2021
 #      by: pyside2-uic  running on PySide2 2.0.0~alpha0
 #
 # WARNING! All changes made in this file will be lost!
